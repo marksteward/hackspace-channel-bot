@@ -63,6 +63,7 @@ class ChanBot(SingleServerIRCBot):
             c.notice(nick, "Not understood: " + cmd)
 
     def schedule_update_subs(self, hour, minute):
+        c = self.connection
         now = datetime.now()
         at = now.replace(hour=hour, minute=minute, second=0)
         if at <= now:
